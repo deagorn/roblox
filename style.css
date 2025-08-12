@@ -1,0 +1,341 @@
+/* Глобальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9; /* Світло-сірий фон як на Introduction */
+  line-height: 1.6;
+}
+
+/* Стилі для бокової панелі */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  background-color: #333;
+  color: white;
+  height: 100%;
+  padding: 15px 8px;
+}
+
+.sidebar ul {
+  list-style-type: none !important; /* Додаємо !important для гарантії */
+  padding: 0;
+  margin: 0; /* Додаємо margin: 0 */
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+  list-style: none !important; /* Гарантуємо відсутність маркерів */
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.4;
+  display: block;
+  word-break: break-word;
+  hyphens: auto;
+  padding: 3px 0; /* Базовий padding для рівномірності */
+  transition: all 0.3s ease; /* Плавний перехід для всіх змін */
+  border-radius: 4px; /* Базове заокруглення */
+}
+
+.sidebar ul li a:hover {
+  color: #16a085;
+  background-color: rgba(22, 160, 133, 0.15); /* Легкий фон з кольором hover */
+  padding: 5px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease; /* Плавний перехід */
+  transform: translateX(3px); /* Легке зміщення вправо */
+}
+
+/* Стиль для активної сторінки */
+.sidebar ul li a.active {
+  color: #e67e22;
+  font-weight: bold;
+  background-color: rgba(230, 126, 34, 0.1); /* Легкий фон */
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+/* Hide learning menu by default, show only on page1 and introduction */
+#learning-menu {
+  display: none;
+}
+
+/* Show learning menu on page1 and introduction pages */
+
+.introduction #learning-menu {
+  display: block;
+}
+
+/* Hide learning menu by default, show only on page1 and introduction */
+#html-menu {
+  display: none;
+}
+
+/* Show learning menu on page1 and introduction pages */
+.html #html-menu {
+  display: block;
+}
+
+.base-menu {
+  display: none;
+}
+
+/* Show learning menu on page1 and introduction pages */
+
+.base #base-menu {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu,
+.dropdown-menu2,
+.dropdown-menu3 {
+  display: none;
+  margin-left: 0px !important;
+  padding-left: 20px !important;
+  border-left: 2px solid #16a085; /* Додаємо лінію зліва для візуального розділення */
+  margin-top: 8px; /* Збільшуємо відступ зверху */
+  padding-top: 5px; /* Додаємо відступ зверху всередині */
+}
+
+/* Стилі для елементів випадного меню */
+.dropdown-menu li,
+.dropdown-menu2 li,
+.dropdown-menu3 li {
+  margin: 6px 0; /* Трохи менші відступи для підменю */
+  margin-left: 0 !important; /* Скидаємо margin елементів */
+}
+
+.dropdown-menu li a,
+.dropdown-menu2 li a,
+.dropdown-menu3 li a {
+  font-size: 13px; /* Трохи менший шрифт для підменю */
+  color: #ccc; /* Трохи світліший колір */
+  margin-left: 0 !important; /* Скидаємо margin посилань */
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu2 li a:hover,
+.dropdown-menu3 li a:hover {
+  color: #16a085;
+  background-color: rgba(22, 160, 133, 0.1);
+  transform: translateX(2px); /* Менше зміщення для підменю */
+}
+
+/* Стилі для кнопок + та - */
+.toggle-btn,
+.toggle-btn2,
+.toggle-btn3 {
+  background: none;
+  border: 1px solid #16a085;
+  color: #16a085;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  display: none; /* За замовчуванням приховані */
+}
+
+.toggle-btn:hover,
+.toggle-btn2:hover,
+.toggle-btn3:hover {
+  background-color: #16a085;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Стилі для елементів списку з кнопками */
+.sidebar li:not(#learning-menu):not(#html-menu):not(#base-menu) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Стилі для випадних меню залишаються без flex */
+#learning-menu,
+#html-menu,
+#base-menu {
+  display: block;
+}
+
+/* Стилі для елементів всередині випадних меню */
+.dropdown-menu2 li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Показуємо кнопки тільки на відповідних сторінках */
+.introduction .toggle-btn {
+  display: inline-block;
+}
+
+.html .toggle-btn2 {
+  display: inline-block;
+}
+
+.base .toggle-btn3 {
+  display: inline-block;
+}
+
+/* Клас для примусового показу кнопок коли меню відкрите */
+.toggle-btn.force-show,
+.toggle-btn2.force-show,
+.toggle-btn3.force-show {
+  display: inline-block !important;
+}
+
+/* Стилі для основного контенту */
+.main-content {
+  margin: 20px auto; /* Автоматичне центрування з відступами зверху/знизу */
+  max-width: 800px; /* Обмежуємо ширину */
+  padding: 20px 40px; /* Внутрішні відступи */
+  background-color: #fff; /* Білий фон як на Introduction */
+  border-radius: 10px; /* Заокруглені кути */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь як на Introduction */
+  /* Просто додаємо відступ зліва для sidebar */
+  margin-left: calc(
+    280px + (100vw - 280px - 800px) / 2
+  ); /* Центрування з урахуванням sidebar */
+  margin-right: auto;
+}
+
+/* Загальні стилі для заголовків */
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+/* Стилі для зображень */
+.content-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Стилі для code блоків */
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+/* Стилі для завантажувача контенту */
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.loading::before {
+  content: "⏳";
+  display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  margin: 20px 0;
+  color: #c33;
+}
+
+.error h3 {
+  margin-top: 0;
+  color: #c33;
+}
+
+.error button {
+  background-color: #16a085;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.error button:hover {
+  background-color: #149174;
+}
+
+/* Стилі для навігації сторінок */
+.page-navigation {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.page-navigation button {
+  background-color: #16a085;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.page-navigation button:hover {
+  background-color: #149174;
+  transform: translateY(-1px);
+}
+
+.page-navigation button.active {
+  background-color: #2c3e50;
+}
+
+.page-navigation .home-link {
+  background-color: #34495e;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.page-navigation .home-link:hover {
+  background-color: #2c3e50;
+  transform: translateY(-1px);
+}
