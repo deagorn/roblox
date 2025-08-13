@@ -339,3 +339,717 @@ pre {
   background-color: #2c3e50;
   transform: translateY(-1px);
 }
+
+/* Стилі сторінки Roblox — базуються на існуючих */
+/* Герой-блок */
+.hero {
+  background: linear-gradient(135deg, #ff7eb3, #65c7f7, #0052d4);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5em;
+}
+.hero .lead {
+  font-size: 1.2em;
+  margin: 10px 0 20px;
+}
+.btn-start {
+  background: #ffcc00;
+  color: #333;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.btn-start:hover {
+  background: #ffd633;
+}
+
+/* Блоки розділів */
+.intro-section,
+.teacher-section,
+.program-section,
+.fun-facts {
+  margin: 30px 0;
+}
+
+/* Вчитель */
+.teacher-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fef6e4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.teacher-photo {
+  width: 140px;
+  border-radius: 10px;
+}
+
+/* Програма */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.level-card {
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+.level-card.easy {
+  background: #00c2ff;
+}
+.level-card.middle {
+  background: #ff8c00;
+}
+.level-card.pro {
+  background: #8a2be2;
+}
+.level-card.senior {
+  background: #228b22;
+}
+
+/* Цікавий факт */
+.fun-facts {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  padding: 20px;
+  border-left: 5px solid #16a085;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== Тема та базові змінні (не ламає твої існуючі) ========== */
+:root {
+  --rc-ink: #2c3e50;
+  --rc-muted: #6b7280;
+  --rc-bg: #ffffff;
+  --rc-soft: #f4f6fb;
+  --rc-radius: 16px;
+  --rc-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --easy: #06b6d4; /* блакитний */
+  --middle: #f59e0b; /* помаранчевий */
+  --pro: #7c3aed; /* фіолетовий */
+  --senior: #15803d; /* зелений */
+}
+
+/* оболонка сторінки */
+.rc-shell {
+  padding: 28px 24px 40px;
+}
+
+/* загальна анімація появи секцій */
+.rc-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rc-reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+/* ховери по сторінці */
+.rc-hover-float {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.rc-hover-float:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.rc-hover-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.rc-hover-tilt:hover {
+  transform: rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* кнопка */
+.rc-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.rc-btn--primary {
+  background: #ffcc00;
+  color: #1f2937;
+  box-shadow: 0 8px 22px rgba(255, 204, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rc-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 204, 0, 0.5);
+}
+
+/* HERO */
+.rc-hero {
+  background: radial-gradient(
+      900px 400px at 90% -10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 400px at -10% 0%,
+      rgba(6, 182, 212, 0.2),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #65c7f7, #0052d4);
+  color: #fff;
+  padding: 36px 24px;
+  border-radius: var(--rc-radius);
+  box-shadow: var(--rc-shadow);
+  text-align: center;
+}
+.rc-hero h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  margin: 6px 0 10px;
+}
+.rc-hero h1 span {
+  white-space: nowrap;
+}
+.rc-hero__lead {
+  max-width: 60ch;
+  margin: 0 auto 18px;
+  opacity: 0.95;
+}
+.rc-hero__badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* ЗАГОЛОВКИ РОЗДІЛІВ */
+.rc-section__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.rc-section__head h2 {
+  margin: 0;
+}
+.rc-section__sub {
+  color: var(--rc-muted);
+  margin: 0;
+}
+
+/* =================== ПРОГРАМА (перероблена) =================== */
+.rc-section {
+  margin: 36px 0;
+}
+
+.rc-levels {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.rc-level {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--rc-bg);
+  box-shadow: var(--rc-shadow);
+  isolation: isolate;
+}
+
+/* тонкий градієнт-бордер зверху */
+.rc-level__stripe {
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 12%,
+        rgba(255, 255, 255, 0) 24%
+      )
+      repeat-x,
+    linear-gradient(90deg, #06b6d4, #f59e0b, #7c3aed, #15803d);
+  background-size: 160px 10px, 100% 10px;
+  mix-blend-mode: plus-lighter;
+}
+
+/* контент картки */
+.rc-level__body {
+  padding: 18px 18px 20px;
+}
+.rc-level__icon {
+  font-size: 22px;
+}
+.rc-level__title {
+  margin: 4px 0 8px;
+}
+.rc-level__desc {
+  color: var(--rc-muted);
+  margin: 0 0 12px;
+}
+
+.rc-level__bullets {
+  --dot: currentColor;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  color: var(--rc-ink);
+}
+.rc-level__bullets li {
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  align-items: start;
+  gap: 10px;
+}
+.rc-level__bullets li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--dot);
+  margin-top: 6px;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* колір акценту для кожного рівня */
+.rc-level--easy {
+  --dot: var(--easy);
+}
+.rc-level--middle {
+  --dot: var(--middle);
+}
+.rc-level--pro {
+  --dot: var(--pro);
+}
+.rc-level--senior {
+  --dot: var(--senior);
+}
+
+/* ефект «блік» при ховері */
+.rc-level::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      600px 200px at -10% -40%,
+      rgba(255, 255, 255, 0.3),
+      transparent 60%
+    ),
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.08) 40%,
+      transparent 65%
+    );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.rc-level:hover::after {
+  opacity: 1;
+}
+
+/* прогрес-лінія під секцією */
+.rc-progress {
+  margin-top: 18px;
+}
+.rc-progress__line {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--easy) 0 25%,
+    var(--middle) 25% 50%,
+    var(--pro) 50% 75%,
+    var(--senior) 75% 100%
+  );
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+}
+.rc-progress__dots {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--rc-muted);
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+/* FUN FACT */
+.fun-facts {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  border-left: 6px solid #00acc1;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--rc-shadow);
+}
+
+/* TEACHER */
+.teacher-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--rc-shadow);
+}
+.teacher-photo {
+  width: 140px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Дрібні покращення типографіки */
+.rc-section h2,
+.intro-section h2,
+.teacher-section h2,
+.fun-facts h2 {
+  color: var(--rc-ink);
+}
+
+/* Повага до користувачів з вимкненими анімаціями */
+@media (prefers-reduced-motion: reduce) {
+  .rc-reveal,
+  .rc-hover-float,
+  .rc-hover-tilt,
+  .rc-btn--primary {
+    transition: none !important;
+  }
+}
+/* ===== Комірна типографія і підзаголовок ===== */
+.levels-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  justify-content: space-between;
+}
+.levels-sub {
+  margin: 0;
+  color: #7a8a99;
+  font-size: 0.95rem;
+}
+
+/* ===== Сітка та картки (той самий «дорослий» стиль) ===== */
+:root {
+  --clr-ink: #2c3e50;
+  --clr-muted: #6b7280;
+  --clr-easy: #08b4ff;
+  --clr-middle: #ff8a00;
+  --clr-pro: #7a2cf2;
+  --clr-senior: #1f8d3a;
+  --radius: 14px;
+  --shadow-1: 0 8px 18px rgba(16, 24, 40, 0.08);
+  --shadow-2: 0 12px 28px rgba(16, 24, 40, 0.16);
+}
+* {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease,
+    border-color 0.3s ease, color 0.3s ease;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.levels-pro {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+  margin-top: 12px;
+}
+.levels-pro .level-pro {
+  grid-column: span 6;
+}
+@media (max-width: 880px) {
+  .levels-pro .level-pro {
+    grid-column: 1 / -1;
+  }
+}
+
+.level-pro {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: clip;
+}
+.level-pro:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-2);
+}
+.level-pro::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.card-easy::before {
+  background: linear-gradient(
+    135deg,
+    rgba(8, 180, 255, 0.22),
+    rgba(255, 255, 255, 0)
+  );
+}
+.card-middle::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 138, 0, 0.22),
+    rgba(255, 255, 255, 0)
+  );
+}
+.card-pro::before {
+  background: linear-gradient(
+    135deg,
+    rgba(122, 44, 242, 0.24),
+    rgba(255, 255, 255, 0)
+  );
+}
+.card-senior::before {
+  background: linear-gradient(
+    135deg,
+    rgba(31, 141, 58, 0.24),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.level-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.level-badge {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: var(--clr-ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-easy .level-badge::before {
+  background: var(--clr-easy);
+}
+.card-middle .level-badge::before {
+  background: var(--clr-middle);
+}
+.card-pro .level-badge::before {
+  background: var(--clr-pro);
+}
+.card-senior .level-badge::before {
+  background: var(--clr-senior);
+}
+
+.level-lead {
+  margin: 6px 0 10px;
+  color: var(--clr-muted);
+  font-weight: 600;
+  line-height: 1.45;
+}
+.level-list {
+  margin: 10px 0 0 18px;
+}
+.level-list li {
+  margin: 8px 0;
+}
+
+/* акуратні «кулі» як на скріні */
+.bullets {
+  list-style: none;
+  padding-left: 0;
+}
+.bullets li {
+  position: relative;
+  padding-left: 18px;
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #172b4d, #1f395b);
+}
+
+/* футер */
+
+.btn-ghost {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid #16a085;
+  color: #16a085;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-ghost:hover {
+  background: #16a085;
+  color: #fff;
+  box-shadow: var(--shadow-1);
+}
+
+/* «блиск» при наведенні */
+.level-pro {
+  --shine: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.65) 45%,
+    transparent 60%
+  );
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+}
+.level-pro:hover {
+  background-image: var(--shine);
+  background-size: 250% 100%;
+  background-position: -50% 0;
+  animation: shine-move 0.9s ease forwards;
+}
+@keyframes shine-move {
+  to {
+    background-position: 150% 0;
+  }
+}
+
+/* прогрес-індикатор під картками */
+.levels-progress {
+  position: relative;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+.levels-progress .track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--clr-easy) 0 25%,
+    var(--clr-middle) 25% 50%,
+    var(--clr-pro) 50% 75%,
+    var(--clr-senior) 75% 100%
+  );
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+.levels-progress .dot {
+  position: absolute;
+  bottom: 30px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.levels-progress .easy {
+  left: 2%;
+  background: var(--clr-easy);
+}
+.levels-progress .middle {
+  left: 34%;
+  background: var(--clr-middle);
+}
+.levels-progress .pro {
+  left: 66%;
+  background: var(--clr-pro);
+}
+.levels-progress .senior {
+  left: 98%;
+  background: var(--clr-senior);
+}
+.levels-progress .labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: #566b7a;
+  font-size: 0.92rem;
+}
+
+/* повага до reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* details/summary — у стилі нових карток + анімація розгортання */
+.level-details {
+  margin-top: 12px;
+  background: #fafbff;
+  border: 1px solid #eef2f7;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.level-details summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 800;
+  color: #34495e;
+  display: flex;
+  align-items: center;
+}
+.level-details summary::-webkit-details-marker {
+  display: none;
+}
+.level-details summary::after {
+  content: "▼";
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  transition: transform 0.25s ease;
+}
+.level-details[open] summary {
+  color: #34495e;
+}
+.level-details[open] summary::after {
+  transform: rotate(-180deg);
+}
+
+/* плавне відкривання (без JS): анімуємо висоту контенту */
+.level-details__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+.level-details[open] .level-details__content {
+  max-height: 700px;
+} /* достатньо для списку */
+.level-details .level-list {
+  margin: 8px 0 0 18px;
+}
+.level-details .level-list li {
+  margin: 6px 0;
+}
