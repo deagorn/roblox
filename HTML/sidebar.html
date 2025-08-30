@@ -2,7 +2,13 @@
   <ul>
     <li><a href="../index.html">Головна</a></li>
     <li>
-      <a href="../HTML/Introduction.html">Вступ до веб-програмування</a>
+      <a
+        href="../HTML/Introduction.html"
+        class="toggle-link"
+        onclick="toggleMenu(event)"
+      >
+        Easy</a
+      >
       <button class="toggle-btn" onclick="toggleMenu()">+</button>
     </li>
     <!-- Випадне меню Introduction  -->
@@ -21,47 +27,10 @@
       </ul>
     </li>
     <!-- Випадне меню Introduction  -->
-    <li>
-      <a href="../HTML/html.html">Модуль 1: HTML</a>
-      <button class="toggle-btn2" onclick="toggleMenu2()">+</button>
-    </li>
-    <!-- Випадне меню HTML-->
-    <li id="html-menu">
-      <ul class="dropdown-menu2" style="display: none">
-        <li>
-          <a href="../HTML/html.html?page=base">Основи HTML</a>
-          <button class="toggle-btn3" onclick="toggleMenu3()">+</button>
-        </li>
-        <!-- Випадне меню base-->
-        <li id="base-menu">
-          <ul class="dropdown-menu3" style="display: none">
-            <li>
-              <a href="../HTML/html.html?page=base#html-structure"
-                >Структура HTML</a
-              >
-            </li>
-            <li>
-              <a href="../HTML/html.html?page=base#html-tags">Основні теги</a>
-            </li>
-            <li>
-              <a href="../HTML/html.html?page=base#html-attributes">Атрибути</a>
-            </li>
-            <li><a href="../HTML/html.html?page=base#html-forms">Форми</a></li>
-            <li>
-              <a href="../HTML/html.html?page=base#html-semantic"
-                >Семантичні елементи</a
-              >
-            </li>
-          </ul>
-        </li>
-        <!-- ---Випадне меню base-->
 
-        <!-- Випадне меню HTML-->
-      </ul>
-    </li>
-    <!-- ---Випадне меню HTML-->
     <li><a href="../HTML/page3.html">Модуль 2: CSS</a></li>
   </ul>
 </div>
 
 <script src="../js/sidebar.js"></script>
+<!-- Скрипт перенесено у sidebar.js -->

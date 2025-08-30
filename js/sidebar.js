@@ -1,179 +1,112 @@
-// sidebar.js
+// sidebar.js — меню відкрито з першого завантаження, кнопка одразу "−".
+// Без збереження станів. Стійко до відкладеного рендеру/інших скриптів.
 
-// Функція для збереження стану меню
-function saveMenuState(menuId, isOpen) {
-  localStorage.setItem(`menu_${menuId}`, isOpen);
-}
+(function () {
+  const SEL = {
+    container: "#learning-menu",
+    menu: "#learning-menu .dropdown-menu",
+    btn: ".toggle-btn",
+  };
 
-// Функція для відновлення стану меню (зробимо глобальною)
-window.restoreMenuStates = function () {
-  // Визначаємо на якій сторінці ми знаходимося
-  const currentPath = window.location.pathname;
-  const isIntroductionPage = currentPath.includes("Introduction.html");
-  const isHtmlPage = currentPath.includes("html.html");
-  const isBasePage = currentPath.includes("base.html");
+  const $ = (s, root = document) => root.querySelector(s);
+  const visible = (el) =>
+    !!el && window.getComputedStyle(el).display !== "none";
 
-  const menus = [
-    {
-      menuClass: ".dropdown-menu",
-      buttonClass: ".toggle-btn",
-      storageKey: "menu_1",
-      shouldShowOnPage: isIntroductionPage, // Показувати тільки на Introduction
-    },
-    {
-      menuClass: ".dropdown-menu2",
-      buttonClass: ".toggle-btn2",
-      storageKey: "menu_2",
-      shouldShowOnPage: isHtmlPage, // Показувати тільки на html.html
-    },
-    {
-      menuClass: ".dropdown-menu3",
-      buttonClass: ".toggle-btn3",
-      storageKey: "menu_3",
-      shouldShowOnPage: isBasePage, // Показувати тільки на base.html
-    },
-  ];
-
-  menus.forEach((menu) => {
-    const isOpen = localStorage.getItem(menu.storageKey) === "true";
-    const dropdownMenu = document.querySelector(menu.menuClass);
-    const toggleButton = document.querySelector(menu.buttonClass);
-
-    if (dropdownMenu) {
-      if (isOpen && menu.shouldShowOnPage) {
-        // Відкриваємо меню тільки якщо ми на правильній сторінці
-        dropdownMenu.style.display = "block";
-        if (toggleButton) {
-          toggleButton.textContent = "-";
-          toggleButton.classList.add("force-show"); // Додаємо клас для показу
-        }
-      } else if (isOpen && !menu.shouldShowOnPage) {
-        // Меню відкрите, але ми не на правильній сторінці - показуємо кнопку для закриття
-        dropdownMenu.style.display = "block";
-        if (toggleButton) {
-          toggleButton.textContent = "-";
-          toggleButton.classList.add("force-show"); // Додаємо клас для показу
-        }
-      } else {
-        // Закриваємо меню
-        dropdownMenu.style.display = "none";
-        if (toggleButton) {
-          toggleButton.textContent = "+";
-          toggleButton.classList.remove("force-show"); // Прибираємо клас
-        }
-      }
-    }
-  });
-};
-
-function toggleMenu() {
-  const dropdownMenu = document.querySelector(".dropdown-menu");
-  const toggleButton = document.querySelector(".toggle-btn");
-
-  // Перевіряємо, чи існують елементи
-  if (!dropdownMenu) return;
-
-  // Перевіряємо, чи меню відкрите або закрите
-  if (
-    dropdownMenu.style.display === "none" ||
-    dropdownMenu.style.display === ""
-  ) {
-    dropdownMenu.style.display = "block"; // Розгортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "-"; // Міняємо знак на "-"
-      toggleButton.classList.add("force-show"); // Показуємо кнопку
-    }
-    saveMenuState("1", true);
-  } else {
-    dropdownMenu.style.display = "none"; // Згортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "+"; // Міняємо знак на "+"
-      toggleButton.classList.remove("force-show"); // Прибираємо примусовий показ
-    }
-    saveMenuState("1", false);
+  function openMenu(menu, btn) {
+    if (!menu) return;
+    // спроба через inline-стиль
+    menu.style.display = "block";
+    // продублюємо стан класом контейнера (на випадок CSS-пріоритетів)
+    const container = $(SEL.container);
+    if (container) container.classList.add("is-open");
+    syncButton(menu, btn);
   }
-}
 
-function toggleMenu2() {
-  const dropdownMenu = document.querySelector(".dropdown-menu2");
-  const toggleButton = document.querySelector(".toggle-btn2");
-
-  // Перевіряємо, чи існують елементи
-  if (!dropdownMenu) return;
-
-  // Перевіряємо, чи меню відкрите або закрите
-  if (
-    dropdownMenu.style.display === "none" ||
-    dropdownMenu.style.display === ""
-  ) {
-    dropdownMenu.style.display = "block"; // Розгортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "-"; // Міняємо знак на "-"
-      toggleButton.classList.add("force-show"); // Показуємо кнопку
-    }
-    saveMenuState("2", true);
-  } else {
-    dropdownMenu.style.display = "none"; // Згортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "+"; // Міняємо знак на "+"
-      toggleButton.classList.remove("force-show"); // Прибираємо примусовий показ
-    }
-    saveMenuState("2", false);
+  function closeMenu(menu, btn) {
+    if (!menu) return;
+    menu.style.display = "none";
+    const container = $(SEL.container);
+    if (container) container.classList.remove("is-open");
+    syncButton(menu, btn);
   }
-}
 
-function toggleMenu3() {
-  const dropdownMenu = document.querySelector(".dropdown-menu3");
-  const toggleButton = document.querySelector(".toggle-btn3");
-
-  // Перевіряємо, чи існують елементи
-  if (!dropdownMenu) return;
-
-  // Перевіряємо, чи меню відкрите або закрите
-  if (
-    dropdownMenu.style.display === "none" ||
-    dropdownMenu.style.display === ""
-  ) {
-    dropdownMenu.style.display = "block"; // Розгортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "-"; // Міняємо знак на "-"
-      toggleButton.classList.add("force-show"); // Показуємо кнопку
-    }
-    saveMenuState("3", true);
-  } else {
-    dropdownMenu.style.display = "none"; // Згортаємо меню
-    if (toggleButton) {
-      toggleButton.textContent = "+"; // Міняємо знак на "+"
-      toggleButton.classList.remove("force-show"); // Прибираємо примусовий показ
-    }
-    saveMenuState("3", false);
+  function syncButton(menu, btn) {
+    if (!btn) return;
+    btn.textContent = visible(menu) ? "−" : "+";
   }
-}
 
-// Відновлюємо стан меню при завантаженні сторінки
-document.addEventListener("DOMContentLoaded", function () {
-  // Невелика затримка для завантаження sidebar
-  setTimeout(function () {
-    window.restoreMenuStates();
-    window.setupAnchorLinks();
-  }, 200);
-});
+  // Глобальна — для inline onclick на кнопці
+  window.toggleMenu = function (e) {
+    const menu = $(SEL.menu);
+    const btn = $(SEL.btn);
+    if (!menu) return;
 
-// Функція для налаштування якорних посилань (зробимо глобальною)
-window.setupAnchorLinks = function () {
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
+    // Якщо клік випадково прийшов із <a>, не блокуємо навігацію
+    if (e && e.currentTarget && e.currentTarget.tagName === "A") return;
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+    if (visible(menu)) closeMenu(menu, btn);
+    else openMenu(menu, btn);
+  };
+
+  // Чекаємо появу елементів і одразу відкриваємо меню
+  function ensureOpenedOnceReady() {
+    const btn = $(SEL.btn);
+    const menu = $(SEL.menu);
+
+    if (menu) {
+      openMenu(menu, btn); // відкрили + виставили "−"
+      return true;
+    }
+    return false;
+  }
+
+  // Тримаємо кнопку синхронізованою, навіть якщо DOM змінюється
+  function observeSync() {
+    const container = $(SEL.container);
+    if (!container) return;
+
+    const mo = new MutationObserver(() => {
+      const menu = $(SEL.menu);
+      const btn = $(SEL.btn);
+      if (!menu || !btn) return;
+      // якщо щось змінилось — просто синхронізуємо
+      syncButton(menu, btn);
     });
+
+    mo.observe(container, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["style", "class"],
+    });
+
+    // невеликий стабілізуючий інтервал на перші пів секунди, щоб перебити пізні ініціалізації
+    let tries = 0;
+    const id = setInterval(() => {
+      const menu = $(SEL.menu);
+      const btn = $(SEL.btn);
+      if (menu) {
+        openMenu(menu, btn); // гарант — меню відкрите, кнопка "−"
+      }
+      if (++tries >= 5) clearInterval(id); // ~500мс (кожні 100мс)
+    }, 100);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Якщо меню вже є — відкриємо. Якщо ще ні — дочекаємось.
+    if (!ensureOpenedOnceReady()) {
+      const mo = new MutationObserver(() => {
+        if (ensureOpenedOnceReady()) mo.disconnect();
+      });
+      mo.observe(document.documentElement, { childList: true, subtree: true });
+      // страховка: зняти спостереження через 5с
+      setTimeout(() => mo.disconnect(), 5000);
+    }
+
+    observeSync();
+
+    // Додатково повісимо слухач на кнопку (разом із inline — не конфліктує)
+    const btn = $(SEL.btn);
+    if (btn) btn.addEventListener("click", window.toggleMenu);
   });
-};
+})();
