@@ -1,0 +1,587 @@
+<div>
+  <h1 id="acquaintance">📝 HTML Форми</h1>
+  <div class="rc-hero rc-reveal" id="hero" aria-labelledby="lesson-title">
+    <p class="rc-hero__badge">Roblox Studio • Для початківців</p>
+    <h1 id="lesson-title">
+      <span>Пробне заняття.</span> Основні принципи роботи в Roblox Studio
+    </h1>
+    <p class="rc-hero__lead">
+      За 60–90 хвилин розберемося з інтерфейсом, навчимося рухати камеру,
+      створимо перший <em>Part</em> і запустимо свою міні-гру. 🚀
+    </p>
+    <span class="badge badge-soft">Пробне заняття</span>
+    <div style="margin-top: 14px">
+      <a href="#toc" class="rc-btn rc-btn--primary">Почати навчання</a>
+    </div>
+  </div>
+  <!-- ЗМІСТ / ЯКІР-МЕНЮ -->
+  <nav id="toc" class="toc rc-reveal" aria-label="Зміст сторінки">
+    <h2>Зміст</h2>
+    <ol>
+      <li><a href="#what-is-roblox">Що таке Roblox і Roblox Studio</a></li>
+      <li><a href="#install">Встановлення та запуск</a></li>
+      <li><a href="#ui-accordion">Перше знайомство з інтерфейсом</a></li>
+      <li><a href="#camera">Як рухати камеру</a></li>
+      <li><a href="#first-part">Створюємо перший об’єкт</a></li>
+      <li><a href="#play-stop">Play / Stop</a></li>
+      <li><a href="#toolbox">Toolbox та авторські права</a></li>
+      <li><a href="#challenge1">Міні-челендж №1</a></li>
+      <li><a href="#quiz">Квіз</a></li>
+      <li><a href="#mistakes">Типові помилки</a></li>
+      <li><a href="#homework">Домашнє завдання</a></li>
+      <li><a href="#summary">Підсумок + для батьків/вчителя</a></li>
+    </ol>
+  </nav>
+
+  <div id="main_div" class="content" tabindex="-1">
+    <!-- 1. ЩО ТАКЕ ROBLOX -->
+    <section id="what-is-roblox" class="section rc-reveal anchor" data-section>
+      <h2>Що таке Roblox та Roblox Studio</h2>
+      <div class="grid-2">
+        <div>
+          <p>
+            <strong>Roblox</strong> — це платформа, де діти й дорослі грають у
+            тисячі ігор. Але найцікавіше — їх можна створювати самостійно.
+          </p>
+          <p>
+            <strong>Roblox Studio</strong> — це безкоштовний редактор. Тут ми
+            будуємо світ із блоків, налаштовуємо властивості, додаємо об’єкти з
+            бібліотек і запускаємо свою гру.
+          </p>
+          <p class="callout">
+            <strong>Термін дня:</strong> <span class="term">Workspace</span> —
+            сцена, де лежать усі об’єкти. <span class="term">Explorer</span> —
+            дерево об’єктів. <span class="term">Properties</span> — панель
+            налаштувань. <span class="term">Toolbox</span> — бібліотека
+            моделей/звуків/зображень.
+          </p>
+          <p class="hint">
+            Пам’ятай про <strong>авторські права</strong>: використовуй тільки
+            моделі/звуки з дозволом для використання. Не завантажуй чужі роботи
+            як свої.
+          </p>
+        </div>
+        <div>
+          <img
+            class="content-image rc-hover-float"
+            src=""
+            alt="Скріншот з відкритою Roblox Studio: по центру — порожня сцена Baseplate у Viewport; ліворуч — панель Explorer з ієрархією об’єктів; праворуч — панель Properties з властивостями виділеного об’єкта; зверху — головне меню та інструменти"
+          />
+          <p class="img-note">
+            Додай власний скрін, щоб діти впізнали інтерфейс.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ВСТАНОВЛЕННЯ -->
+    <section id="install" class="section rc-reveal anchor" data-section>
+      <h2>Встановлення та запуск</h2>
+      <ol>
+        <li>
+          Увійди у свій акаунт Roblox у браузері, натисни <em>Create</em> та
+          встанови Roblox Studio (якщо ще не встановлено).
+        </li>
+        <li>Відкрий Roblox Studio і увійди у свій акаунт.</li>
+        <li>
+          Обери шаблон <strong>Baseplate</strong> та натисни <em>Create</em>.
+        </li>
+      </ol>
+      <img
+        class="content-image"
+        src=""
+        alt="Екран вибору шаблонів під час запуску Roblox Studio: виділено пункт Baseplate; видно панелі праворуч і зверху, кнопка Create активна"
+      />
+      <p class="img-note">
+        Скрін із вибором Baseplate допоможе не розгубитися.
+      </p>
+    </section>
+
+    <!-- 3. ІНТЕРФЕЙС (АКОРДЕОН) -->
+    <section id="ui-accordion" class="section rc-reveal anchor" data-section>
+      <h2>Перше знайомство з інтерфейсом</h2>
+
+      <div
+        class="accordion"
+        role="region"
+        aria-label="Основні панелі та інструменти"
+      >
+        <!-- Explorer -->
+        <div class="accordion__item" aria-expanded="false">
+          <button
+            class="accordion__header"
+            aria-controls="panel-explorer"
+            aria-expanded="false"
+          >
+            <span>Панель Explorer</span>
+            <span class="accordion__chev" aria-hidden="true">▼</span>
+          </button>
+          <div
+            id="panel-explorer"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="hdr-explorer"
+            hidden
+          >
+            <p id="hdr-explorer" class="visually-hidden">
+              Пояснення панелі Explorer
+            </p>
+            <p>
+              <strong>Explorer</strong> показує ієрархію сцени: що в чому
+              лежить. Перетягни Part у потрібну папку — так ти впорядкуєш
+              проєкт.
+            </p>
+            <img
+              class="content-image"
+              src=""
+              alt="Крупний план панелі Explorer в Roblox Studio: дерево об’єктів із вузлами Workspace, Camera, Terrain, StarterPlayer; показано, як Part знаходиться всередині Workspace"
+            />
+            <p class="img-note">
+              Зображення зі стрілкою, що вказує на Workspace.
+            </p>
+          </div>
+        </div>
+
+        <!-- Properties -->
+        <div class="accordion__item" aria-expanded="false">
+          <button
+            class="accordion__header"
+            aria-controls="panel-properties"
+            aria-expanded="false"
+          >
+            <span>Панель Properties</span>
+            <span class="accordion__chev" aria-hidden="true">▼</span>
+          </button>
+          <div
+            id="panel-properties"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="hdr-properties"
+            hidden
+          >
+            <p id="hdr-properties" class="visually-hidden">
+              Пояснення панелі Properties
+            </p>
+            <p>
+              У <strong>Properties</strong> змінюємо колір, матеріал, розмір,
+              <em>Anchored</em> та інші властивості виділеного об’єкта.
+            </p>
+            <img
+              class="content-image"
+              src=""
+              alt="Панель Properties у Roblox Studio: виділено параметри Color, Material, Anchored для вибраного Part; вказівник миші навпроти перемикача Anchored"
+            />
+          </div>
+        </div>
+
+        <!-- Viewport -->
+        <div class="accordion__item" aria-expanded="false">
+          <button
+            class="accordion__header"
+            aria-controls="panel-viewport"
+            aria-expanded="false"
+          >
+            <span>Вікно сцени (Viewport)</span>
+            <span class="accordion__chev" aria-hidden="true">▼</span>
+          </button>
+          <div
+            id="panel-viewport"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="hdr-viewport"
+            hidden
+          >
+            <p id="hdr-viewport" class="visually-hidden">
+              Пояснення вікна сцени
+            </p>
+            <p>
+              Тут ми бачимо свій світ та керуємо камерою. Будь-які зміни в сцені
+              видно тут одразу.
+            </p>
+            <img
+              class="content-image"
+              src=""
+              alt="Вікно Viewport у Roblox Studio з розміщеним блоком Part посеред Baseplate; видно gizmo для Move зі стрілками X, Y, Z"
+            />
+          </div>
+        </div>
+
+        <!-- Інструменти W/E/R -->
+        <div class="accordion__item" aria-expanded="false">
+          <button
+            class="accordion__header"
+            aria-controls="panel-tools"
+            aria-expanded="false"
+          >
+            <span
+              >Інструменти: Move / Scale / Rotate (<span class="kbd">W</span
+              >/<span class="kbd">E</span>/<span class="kbd">R</span>)</span
+            >
+            <span class="accordion__chev" aria-hidden="true">▼</span>
+          </button>
+          <div
+            id="panel-tools"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="hdr-tools"
+            hidden
+          >
+            <p id="hdr-tools" class="visually-hidden">
+              Пояснення інструментів W/E/R
+            </p>
+            <ul class="bullets">
+              <li>
+                <strong>Move</strong> — переміщення по осях. Клавіша
+                <span class="kbd">W</span>.
+              </li>
+              <li>
+                <strong>Scale</strong> — зміна розміру. Клавіша
+                <span class="kbd">E</span>.
+              </li>
+              <li>
+                <strong>Rotate</strong> — обертання. Клавіша
+                <span class="kbd">R</span>.
+              </li>
+            </ul>
+            <img
+              class="content-image"
+              src=""
+              alt="Три кадри Roblox Studio: ліворуч режим Move зі стрілками XYZ; по центру режим Scale з кубічними хендлами; праворуч режим Rotate з кільцями обертання"
+            />
+          </div>
+        </div>
+
+        <!-- Сцена/ієрархія та Збереження -->
+        <div class="accordion__item" aria-expanded="false">
+          <button
+            class="accordion__header"
+            aria-controls="panel-save"
+            aria-expanded="false"
+          >
+            <span>Сцена та збереження: Save / Publish</span>
+            <span class="accordion__chev" aria-hidden="true">▼</span>
+          </button>
+          <div
+            id="panel-save"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="hdr-save"
+            hidden
+          >
+            <p id="hdr-save" class="visually-hidden">Пояснення збереження</p>
+            <p>
+              <strong>Save</strong> зберігає файл локально, а
+              <strong>Publish to Roblox</strong> — відправляє в хмару на твій
+              акаунт. Перед натисканням <em>Play</em> —
+              <strong>завжди збережи!</strong>
+            </p>
+            <img
+              class="content-image"
+              src=""
+              alt="Меню File у Roblox Studio з виділеними пунктами Save і Publish to Roblox; показано діалогове вікно підтвердження публікації"
+            />
+          </div>
+        </div>
+      </div>
+      <p class="hint">
+        Клавіатура: <span class="kbd">Tab</span> — переходить між заголовками
+        акордеону. <span class="kbd">Enter</span>/<span class="kbd">Space</span>
+        — відкрити/закрити. Стрілки <span class="kbd">↑</span>/<span class="kbd"
+          >↓</span
+        >
+        — перейти до сусіднього пункту.
+      </p>
+    </section>
+
+    <!-- 4. РУХ КАМЕРИ -->
+    <section id="camera" class="section rc-reveal anchor" data-section>
+      <h2>Рух камери (крок-за-кроком)</h2>
+      <ol>
+        <li>Затисни праву кнопку миші та повертай — оглядайся навколо.</li>
+        <li>
+          Рухайся як у грі: <span class="kbd">W</span>
+          <span class="kbd">A</span> <span class="kbd">S</span>
+          <span class="kbd">D</span>.
+        </li>
+        <li>Коліщатко миші — <strong>наближає/віддаляє</strong>.</li>
+        <li>
+          <strong>Фокус на об’єкт</strong>: виділи об’єкт і натисни
+          <span class="kbd">F</span>.
+        </li>
+      </ol>
+      <img
+        class="content-image"
+        src=""
+        alt="Схема керування камерою в Roblox Studio: іконки клавіш WASD для руху, права кнопка миші для огляду, коліщатко для зуму; стрілка до кнопки F для фокусу на виділеному обʼєкті"
+      />
+    </section>
+
+    <!-- 5. ПЕРШИЙ PART -->
+    <section id="first-part" class="section rc-reveal anchor" data-section>
+      <h2>Створюємо перший об’єкт</h2>
+      <ol>
+        <li>У меню <em>Model</em> натисни <strong>Part → Block</strong>.</li>
+        <li>
+          Відкрий <strong>Properties</strong> і зміни <em>Color</em> та
+          <em>Material</em>.
+        </li>
+        <li>
+          Постав прапорець <strong>Anchored</strong>, щоб об’єкт не падав.
+        </li>
+        <li>
+          Спробуй <strong>Duplicate</strong>:
+          <span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> +
+          <span class="kbd">D</span>. Видалення —
+          <span class="kbd">Del</span> або <span class="kbd">Backspace</span>.
+        </li>
+        <li>
+          Порівняй різницю між <strong>Move</strong>, <strong>Scale</strong>,
+          <strong>Rotate</strong> — як змінюється gizmo та результат.
+        </li>
+      </ol>
+      <div class="grid-2">
+        <div class="card">
+          <h3 class="rc-section__sub">Маленькі лайфхаки</h3>
+          <ul class="bullets">
+            <li>
+              Тримай сцену охайною: перейменовуй об’єкти (наприклад,
+              <em>Bridge_Block_01</em>).
+            </li>
+            <li>Групуй логічно: <em>Model → Group</em> для набору блоків.</li>
+            <li>
+              Використовуй <strong>Snap to Grid</strong> для рівних відступів.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            class="content-image"
+            src=""
+            alt="Кольоровий блок Part на Baseplate; у Properties виділено поля Color, Material і прапорець Anchored; на сцені активний режим Move зі стрілками"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PLAY / STOP -->
+    <section id="play-stop" class="section rc-reveal anchor" data-section>
+      <h2>Play / Stop</h2>
+      <p>
+        Щоб протестувати гру, натисни <strong>Play</strong>. Щоб повернутися в
+        режим редагування, натисни <strong>Stop</strong>.
+      </p>
+      <p class="callout">
+        <strong>Важливо:</strong> перед <em>Play</em> зроби
+        <strong>Save</strong> або <strong>Publish</strong>. Це економить час і
+        рятує від втрат.
+      </p>
+      <img
+        class="content-image"
+        src=""
+        alt="Панель керування Roblox Studio у верхній частині з виділеними кнопками Play та Stop; підпис про необхідність Save/Publish перед запуском"
+      />
+    </section>
+
+    <!-- 7. TOOLBOX + ПРАВА -->
+    <section id="toolbox" class="section rc-reveal anchor" data-section>
+      <h2>Toolbox: безпека та авторські права</h2>
+      <p>
+        <strong>Toolbox</strong> — це бібліотека моделей, зображень, звуків.
+        Вона зручна, але будь обережний(а):
+      </p>
+      <ul class="bullets">
+        <li>
+          Обирай <strong>перевірених авторів</strong> та моделі з високим
+          рейтингом.
+        </li>
+        <li>Уникай підозрілих скриптів всередині моделей.</li>
+        <li>
+          Повага до <strong>авторських прав</strong>: не копіюй чужу гру
+          повністю, не видавай за свою.
+        </li>
+      </ul>
+      <img
+        class="content-image"
+        src=""
+        alt="Відкрита панель Toolbox у Roblox Studio: вкладка Models; видно поле пошуку, фільтри, рейтинги; приклад безпечної моделі з великою кількістю завантажень"
+      />
+    </section>
+
+    <!-- 8. ЧЕЛЕНДЖ -->
+    <section id="challenge1" class="section rc-reveal anchor" data-section>
+      <h2>Міні-челендж №1: карта «Пірати» 🏴‍☠️</h2>
+      <div class="challenge">
+        <p>
+          <strong>Завдання на уроці:</strong> збудуй маленький острів, причал і
+          постав скриню зі скарбами.
+        </p>
+        <ul class="bullets">
+          <li>
+            Створи <em>острів</em> з кількох <strong>Part</strong> (різні
+            розміри та матеріали, <em>Anchored</em>).
+          </li>
+          <li>Додай <em>пальму</em> з Toolbox (перевір автора та рейтинг).</li>
+          <li>
+            Зроби <em>місток</em> з дублікованих блоків (<span class="kbd"
+              >Ctrl</span
+            >/<span class="kbd">Cmd</span> + <span class="kbd">D</span>).
+          </li>
+          <li>Постав <em>скриню</em> і познач її яскравим кольором.</li>
+        </ul>
+        <p>
+          <strong>Як зберегти:</strong> <em>File → Save</em> і
+          <em>File → Publish to Roblox</em>. Дай назву «Pirate_Island_YourName».
+        </p>
+      </div>
+    </section>
+
+    <!-- 9. КВІЗ -->
+    <section id="quiz" class="section rc-reveal anchor" data-section>
+      <h2>Квіз: перевір себе</h2>
+      <p class="hint">Відповіді нижче — відкривай тільки після спроби 😉</p>
+      <ol>
+        <li>Де видно всю ієрархію об’єктів сцени?</li>
+        <li>Якою клавішею фокусуємо камеру на об’єкті?</li>
+        <li>Який інструмент змінює розмір об’єкта?</li>
+        <li>Для чого прапорець <em>Anchored</em>?</li>
+        <li>
+          Що робить <span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> +
+          <span class="kbd">D</span>?
+        </li>
+        <li>Чому важливо зберігати перед <em>Play</em>?</li>
+        <li>Що таке Toolbox і чому потрібно бути обережним?</li>
+      </ol>
+
+      <details class="level-details" style="margin-top: 10px">
+        <summary>Показати правильні відповіді</summary>
+        <div class="level-details__content">
+          <ol>
+            <li>У панелі <strong>Explorer</strong>.</li>
+            <li>Клавіша <span class="kbd">F</span>.</li>
+            <li><strong>Scale</strong> (<span class="kbd">E</span>).</li>
+            <li>Щоб об’єкт не падав і залишався на місці.</li>
+            <li>Дублює виділений об’єкт.</li>
+            <li>Щоб не втратити зміни і мати збережену версію гри.</li>
+            <li>
+              Бібліотека моделей/медіа; перевір авторів і скрипти — повага до
+              авторських прав.
+            </li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- 10. ТИПОВІ ПОМИЛКИ -->
+    <section id="mistakes" class="section rc-reveal anchor" data-section>
+      <h2>Типові помилки</h2>
+      <div class="table-wrap">
+        <table class="simple" role="table" aria-describedby="mistakes-caption">
+          <caption id="mistakes-caption" class="visually-hidden">
+            Таблиця типових помилок і рішень
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Симптом</th>
+              <th scope="col">Рішення</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Об’єкт падає з платформи</td>
+              <td>Увімкни <strong>Anchored</strong> у Properties.</td>
+            </tr>
+            <tr>
+              <td>Не можу знайти об’єкт на сцені</td>
+              <td>
+                Виділи його в Explorer та натисни <span class="kbd">F</span> для
+                фокусу.
+              </td>
+            </tr>
+            <tr>
+              <td>Інструмент не той (не рухається/не масштабується)</td>
+              <td>
+                Перемкнись на <strong>W</strong>/<strong>E</strong>/<strong
+                  >R</strong
+                >
+                (Move/Scale/Rotate).
+              </td>
+            </tr>
+            <tr>
+              <td>Кнопка Play нічого не змінює</td>
+              <td>
+                Збережи <em>File → Save</em> і перевір, чи немає помилки у вікні
+                виводу.
+              </td>
+            </tr>
+            <tr>
+              <td>Модель з Toolbox поводиться дивно</td>
+              <td>
+                Перевір скрипти всередині моделі, обирай надійних авторів/високі
+                рейтинги.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 11. ДЗ -->
+    <section id="homework" class="section rc-reveal anchor" data-section>
+      <h2>Домашнє завдання</h2>
+      <p>
+        Створи <strong>легку карту</strong> через Toolbox на будь-яку тему
+        (наприклад, «парк розваг» або «космічна станція»):
+      </p>
+      <ul class="bullets">
+        <li>Додай щонайменше 5 об’єктів з Toolbox від перевірених авторів.</li>
+        <li>
+          Використай <strong>Part</strong> для власних елементів (місток,
+          підставка, платформа).
+        </li>
+        <li>Зміни колір/матеріал і зроби важливе <em>Anchored</em>.</li>
+        <li>Збережи та опублікуй: <em>Save</em> + <em>Publish</em>.</li>
+      </ul>
+    </section>
+
+    <!-- 12. ПІДСУМОК + ДЛЯ БАТЬКІВ -->
+    <section id="summary" class="section rc-reveal anchor" data-section>
+      <h2>Підсумок та блок для батьків/вчителя</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Сьогодні ми навчилися:</h3>
+          <ul class="bullets">
+            <li>
+              Розуміти панелі <em>Explorer</em>, <em>Properties</em>,
+              <em>Viewport</em>.
+            </li>
+            <li>
+              Керувати камерою (<span class="kbd">W</span
+              ><span class="kbd">A</span><span class="kbd">S</span
+              ><span class="kbd">D</span>, права кнопка, коліщатко,
+              <span class="kbd">F</span>).
+            </li>
+            <li>
+              Створювати та налаштовувати <em>Part</em> (колір, матеріал,
+              <em>Anchored</em>).
+            </li>
+            <li>Запускати/зупиняти <em>Play/Stop</em> та зберігати проєкт.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Як підтримати вдома:</h3>
+          <ul class="bullets">
+            <li>
+              Нагадуйте про <strong>Save</strong> і
+              <strong>Publish</strong> перед <em>Play</em>.
+            </li>
+            <li>Обговоріть авторські права: що можна, а що — ні.</li>
+            <li>
+              Ставте маленькі челенджі (наприклад, «міст через річку з 6
+              блоків»).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

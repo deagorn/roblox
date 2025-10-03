@@ -60,7 +60,11 @@ function fixSidebarLinks() {
     if (isInRoot) {
       // If we're in root (index.html), fix the links
       if (href === "../HTML/Introduction.html") {
-        link.setAttribute("href", "./HTML/Introduction.html");
+        link.setAttribute("href", "./HTML/Intro.html");
+      } else if (href === "../HTML/Intro.html") {
+        link.setAttribute("href", "./HTML/Intro.html");
+      } else if (href === "../HTML/page1.html") {
+        link.setAttribute("href", "./HTML/page1.html");
       } else if (href === "../HTML/page1.html") {
         link.setAttribute("href", "./HTML/page1.html");
       } else if (href === "../HTML/page2.html") {
@@ -108,6 +112,10 @@ function highlightActivePage() {
   } else if (currentPage === "Introduction.html") {
     activeLink = document.querySelector(
       '.sidebar a[href="./HTML/Introduction.html"], .sidebar a[href="../HTML/Introduction.html"]'
+    );
+  } else if (currentPage === "Intro.html") {
+    activeLink = document.querySelector(
+      '.sidebar a[href="./HTML/Intro.html"], .sidebar a[href="../HTML/Intro.html"]'
     );
   } else if (currentPage === "page1.html") {
     activeLink = document.querySelector(

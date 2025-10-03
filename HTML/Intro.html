@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вступ до веб-програмування</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../CSS/Intro.css" />
+  </head>
+  <body class="html rc-shell">
+    <!-- Місце для завантаження бокової панелі -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <div class="container">
+        <!-- Навігація між сторінками -->
+        <nav class="page-navigation">
+          <a href="../index.html" class="home-link">🏠 Головна</a>
+          <button onclick="loadPage('base')">📚 Основи HTML</button>
+          <button onclick="loadPage('advanced')">🚀 Поглиблений HTML</button>
+          <!-- 📝 ДОДАВАЙТЕ НОВІ КНОПКИ ТУТ -->
+        </nav>
+
+        <!-- Місце для завантаження сторінки -->
+        <a class="visually-hidden" href="#main"
+          >Перейти до основного контенту</a
+        >
+        <div id="acquaintance"></div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/intro.js"></script>
+    <script src="../js/acquaintance.js"></script>
+  </body>
+</html>
