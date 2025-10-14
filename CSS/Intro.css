@@ -1,28 +1,3 @@
-.toc {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px rgba(16, 24, 40, 0.08);
-  padding: 14px 16px;
-  position: sticky;
-  top: 10px;
-  z-index: 2;
-}
-.toc h2 {
-  margin: 6px 0 10px;
-  font-size: 1.1rem;
-}
-.toc ol {
-  margin: 0;
-  padding-left: 18px;
-}
-.toc a {
-  text-decoration: none;
-  color: #0f3d3e;
-}
-.toc a:focus-visible {
-  outline: 3px solid #16a085;
-  border-radius: 6px;
-}
 .rc-hero .badge {
   display: inline-block;
   margin-top: 8px;
@@ -192,11 +167,6 @@ table.simple th {
   margin: 6px 0 0;
 }
 
-/* Якірні заголовки */
-.anchor {
-  scroll-margin-top: 90px;
-}
-
 /* Невеличкі картки */
 .card {
   background: #fff;
@@ -232,33 +202,87 @@ table.simple th {
 }
 /* TOC як звичайний блок у потоці сторінки */
 .toc {
-  position: static !important; /* прибираємо липкість */
+  position: static !important;
   top: auto !important;
   z-index: auto !important;
-  box-shadow: none; /* можна лишити, якщо хочеш */
-  margin: 16px 0 24px; /* відступи зверху/знизу */
-  padding: 0; /* за бажанням, простіше виглядає */
-  background: transparent; /* щоб не перекривало візуально */
-  border-radius: 0;
-  border: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкий тіньовий ефект */
+  margin: 16px 0 24px;
+  padding: 16px;
+  background: #f5faff; /* Світло-блакитний фон */
+  border-radius: 12px; /* Округлені кути */
+  border: 1px solid #b3d9e6; /* Легкий контур */
+  transition: transform 0.3s ease-in-out; /* Анімація */
 }
 
-/* Зміст — простий нумерований список з якорями */
+.toc:hover {
+  transform: scale(1.02); /* Легке збільшення при наведенні */
+}
+
 .toc h2 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  color: #0f3d3e;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #16a085, #00b8d4); /* Градієнт */
+  -webkit-background-clip: text; /* Застосування градієнту до тексту */
+  color: transparent;
+  padding: 4px 0;
 }
+
 .toc ol {
-  padding-left: 20px; /* стандартний відступ нумерації */
+  padding-left: 20px;
   margin: 0;
+  list-style: none; /* Відмова від стандартних чисел */
 }
+
+.toc li {
+  position: relative;
+  padding-left: 30px;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease; /* Анімація при наведенні */
+}
+
+.toc li:before {
+  content: "★"; /* Іконка перед кожним елементом */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  color: #61ddff; /* Червонуватий колір */
+  transition: transform 0.3s ease;
+}
+
+.toc li:hover {
+  color: #16a085;
+  transform: translateX(10px); /* Легке зсування елемента вправо */
+}
+
+.toc li:hover:before {
+  transform: rotate(360deg); /* Крутиться іконка */
+}
+
 .toc a {
   text-decoration: none;
   color: #0f3d3e;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-.toc a:hover,
-.toc a:focus {
+
+.toc a:hover {
+  color: #16a085;
   text-decoration: underline;
+}
+
+.toc a:focus-visible {
+  outline: 3px solid #16a085;
+  border-radius: 6px;
+  background-color: rgba(
+    22,
+    160,
+    133,
+    0.2
+  ); /* Легке підсвічування при фокусі */
 }
 
 /* Щоб прокрутка до якоря не ховалася під шапки/стики */
@@ -314,3 +338,136 @@ table.simple th {
 /* і тоді додай:
 .accordion__item[aria-expanded="true"] .accordion__panel { display: block; }
 */
+/* Загальні стилі для секцій */
+.section {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(16, 24, 40, 0.1);
+  padding: 24px;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px); /* Легкий ефект при наведенні */
+}
+
+/* Стилі для тексту */
+.intro-text,
+.studio-text {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 15px 0;
+  transition: color 0.3s ease;
+}
+
+.intro-text strong,
+.studio-text strong {
+  color: #ff6347; /* Помаранчевий для виділених слів */
+}
+
+/* Ефект при наведенні на абзаци */
+.intro-text:hover,
+.studio-text:hover {
+  color: #16a085; /* Зміна кольору на зелений при наведенні */
+}
+
+/* Стиль для підзаголовків */
+.title {
+  font-size: 1.2rem;
+  color: #1f2937;
+  font-weight: 800;
+  text-transform: uppercase; /* Великі літери для акценту */
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.title:hover {
+  color: #ff6347; /* Помаранчевий акцент на підзаголовках */
+}
+
+.sub-title {
+  font-size: 1.6rem;
+  color: #1f2937;
+  font-weight: 800;
+  text-transform: uppercase; /* Великі літери для акценту */
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.sub-title:hover {
+  color: #ff6347; /* Помаранчевий акцент на підзаголовках */
+}
+
+/* Стилі для списку фактів */
+.facts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fact-item {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0;
+  font-weight: 500;
+  position: relative;
+  padding-left: 30px; /* Збільшено відступ для відстані між текстом і зірочкою */
+  transition: color 0.3s ease;
+}
+
+.fact-item::before {
+  content: "⭐"; /* Іконка перед кожним елементом */
+  position: absolute;
+  left: 0; /* Встановлено відступ від лівого краю */
+  top: 50%;
+  transform: translateY(-50%); /* Центрування зірочки по вертикалі */
+  font-size: 1.4rem;
+  color: #ff6347; /* Помаранчевий для іконки */
+}
+
+.fact-item:hover {
+  color: #16a085; /* Зміна кольору на зелений при наведенні */
+}
+
+.fact-item strong {
+  color: #ff6347; /* Помаранчевий для виділених слів */
+}
+
+/* Анімація для з'явлення елементів */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Мобільна адаптивність */
+@media (max-width: 768px) {
+  .section {
+    padding: 18px;
+  }
+
+  .intro-text,
+  .studio-text,
+  .fact-item {
+    font-size: 1rem;
+  }
+}
+.intro-img {
+  max-width: 100%; /* Робимо зображення адаптивним до ширини контейнера */
+  height: auto; /* Зберігаємо пропорції зображення */
+  display: block; /* Зображення займає лише необхідний простір */
+  margin: 20px auto; /* Центруємо зображення і додаємо відступи з усіх боків */
+  border-radius: 10px; /* Округляємо кути зображення для м'якшого вигляду */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Легка тінь для додаткової глибини */
+}
