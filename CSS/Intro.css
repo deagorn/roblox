@@ -471,3 +471,59 @@ table.simple th {
   border-radius: 10px; /* Округляємо кути зображення для м'якшого вигляду */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Легка тінь для додаткової глибини */
 }
+
+.step {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+  color: #16a085;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.step ul {
+  font-size: 1.1rem;
+  color: #333;
+  padding-left: 20px;
+}
+
+.step-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилі для порад */
+.tips {
+  background-color: #e8f9e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.tips ul {
+  padding-left: 20px;
+}
+
+/* Завершення */
+.final-note {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #16a085;
+  margin-top: 30px;
+}
