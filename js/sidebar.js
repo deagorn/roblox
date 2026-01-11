@@ -53,7 +53,21 @@
     const btn = $(SEL.btn);
     const menu = $(SEL.menu);
 
-    if (menu) {
+    function shouldAutoOpen() {
+      const currentPage = window.location.pathname.split("/").pop();
+      if (currentPage === "Introduction.html") return true;
+      const hash = window.location.hash;
+      if (hash && menu) {
+        try {
+          if (menu.querySelector(hash)) return true;
+        } catch (e) {
+          // invalid selector in hash - ignore
+        }
+      }
+      return false;
+    }
+
+    if (menu && shouldAutoOpen()) {
       openMenu(menu, btn); // відкрили + виставили "−"
       return true;
     }
@@ -86,7 +100,14 @@
       const menu = $(SEL.menu);
       const btn = $(SEL.btn);
       if (menu) {
-        openMenu(menu, btn); // гарант — меню відкрите, кнопка "−"
+        const currentPage = window.location.pathname.split("/").pop();
+        const hash = window.location.hash;
+        if (
+          currentPage === "Introduction.html" ||
+          (hash && menu.querySelector(hash))
+        ) {
+          openMenu(menu, btn); // гарант — меню відкрите, кнопка "−"
+        }
       }
       if (++tries >= 5) clearInterval(id); // ~500мс (кожні 100мс)
     }, 100);

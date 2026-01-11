@@ -60,7 +60,7 @@ function fixSidebarLinks() {
     if (isInRoot) {
       // If we're in root (index.html), fix the links
       if (href === "../HTML/Introduction.html") {
-        link.setAttribute("href", "./HTML/Intro.html");
+        link.setAttribute("href", "./HTML/Introduction.html");
       } else if (href === "../HTML/Intro.html") {
         link.setAttribute("href", "./HTML/Intro.html");
       } else if (href === "../HTML/page1.html") {

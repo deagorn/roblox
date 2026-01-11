@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вступ до веб-програмування</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../CSS/Introduction.css" />
+    <link rel="stylesheet" href="../CSS/lessons.css" />
+  </head>
+  <body class="introduction">
+    <!-- Місце для завантаження бокової панелі -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <div class="container">
+        <header>
+          <h1>Урок 1: Основи Roblox Studio</h1>
+          <div class="nav-buttons">
+            <button onclick="showSection('theory')">Теорія</button>
+            <button onclick="showSection('practical')">
+              Практичне завдання
+            </button>
+            <button onclick="showSection('homework')">Домашнє завдання</button>
+          </div>
+        </header>
+
+        <section id="theory" class="section">
+          <h2>Теорія</h2>
+          <p>
+            Це частина інтерфейсу Roblox Studio, яка показує структуру всіх
+            об'єктів у грі. Вона виглядає як дерево, де кожен об'єкт має своє
+            місце і може містити інші об'єкти. Ця панель дозволяє бачити, як
+            організовані всі частини гри, включаючи моделі, скрипти, частинки,
+            звуки тощо.
+          </p>
+          <h3>Як відкрити панель Explorer:</h3>
+          <ul>
+            <li>1. Відкриваємо вкладку View</li>
+            <li>2. Клікаємо на Explorer</li>
+            <li>3. Панель з'явилася!</li>
+          </ul>
+        </section>
+
+        <section id="practical" class="section">
+          <h2>Практичне завдання</h2>
+          <h3>Крок 1: Створюємо декілька рівнів звичайного паркуру</h3>
+          <p>Ідеї рівнів:</p>
+          <ul>
+            <li>Ідеї для етапів паркуру, які можуть бути використані в грі.</li>
+          </ul>
+          <h3>
+            Крок 2: Точка появи (SpawnLocation) змінюємо колір на унікальний
+          </h3>
+          <p>Це дозволяє виділити точку, де гравець з'являється в грі.</p>
+          <h3>Крок 3: Групуємо всі елементи по папках</h3>
+          <p>Для зручності організації і кращого керування елементами гри.</p>
+          <h3>Крок 4: Зберігаємо гру</h3>
+          <h3>Крок 5: Давай дружити?</h3>
+          <p>Після виконання всіх кроків запрошуємо перевірити результат.</p>
+        </section>
+
+        <section id="homework" class="section">
+          <h2>Домашнє завдання</h2>
+          <p>
+            Тестуй свою гру! Створи рівень, який буде складатися з кількох
+            етапів, включаючи сходи, платформи і точку появи.
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/lesson1.js"></script>
+    <script src="../js/acquaintance.js" defer></script>
+  </body>
+</html>
