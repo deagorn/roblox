@@ -26,22 +26,146 @@
         </header>
 
         <section id="theory" class="section">
-          <h2>Теорія</h2>
-          <p>
-            Це частина інтерфейсу Roblox Studio, яка показує структуру всіх
-            об'єктів у грі. Вона виглядає як дерево, де кожен об'єкт має своє
-            місце і може містити інші об'єкти. Ця панель дозволяє бачити, як
-            організовані всі частини гри, включаючи моделі, скрипти, частинки,
-            звуки тощо.
-          </p>
-          <h3>Як відкрити панель Explorer:</h3>
-          <ul>
-            <li>1. Відкриваємо вкладку View</li>
-            <li>2. Клікаємо на Explorer</li>
-            <li>3. Панель з'явилася!</li>
-          </ul>
+          <div class="intro" id="intro">
+            <h3>
+              🎮 Ви звикли бути просто гравцями? Забудьте. Тут ви — головні.
+              Ласкаво просимо в Roblox Studio!
+            </h3>
+            <p>
+              Ти вже відкрив програму? Супер! Перед тобою — пустий світ, який
+              чекає на твої правила. Але спочатку давай розберемося, хто тут
+              головний (спойлер: це ти).
+            </p>
+            <div class="img-placeholder">
+              Скріншот: [Відкритий пустий Baseplate у Roblox Studio, інтерфейс
+              програми]
+            </div>
+          </div>
+
+          <div class="explorer" id="explorer">
+            <h3>🗺️ Панель Explorer: Твій рюкзак</h3>
+            <p>
+              Уяви, що <strong>Explorer</strong> — це твій інвентар у Minecraft
+              або рюкзак у Fortnite. Тут лежить абсолютно ВСЕ, що є у твоїй грі.
+            </p>
+
+            <div class="alert-box">
+              <p>
+                💡 <strong>Не бачиш Explorer?</strong> Без паніки! Тисни зверху
+                на вкладку <strong>VIEW</strong> і шукай кнопку
+                <strong>Explorer</strong>.
+              </p>
+            </div>
+            <div class="img-placeholder">
+              Скріншот: [Стрілка вказує на вкладку VIEW та кнопку Explorer]
+            </div>
+
+            <p>Що там лежить за замовчуванням?</p>
+            <ul>
+              <li>
+                <strong>Workspace:</strong> Це весь ігровий світ. Все, що ми
+                бачимо і чіпаємо.
+              </li>
+              <li><strong>Camera:</strong> Твої очі в грі.</li>
+              <li><strong>Terrain:</strong> Трава, вода, гори (ландшафт).</li>
+              <li>
+                <strong>Baseplate:</strong> Твоя підлога. Якщо її видалити —
+                впадеш у безодню! 😱
+              </li>
+              <li>
+                <strong>SpawnLocation:</strong> Чекпоінт. Саме тут з'явиться
+                гравець.
+              </li>
+            </ul>
+          </div>
+
+          <div class="tools" id="tools">
+            <h3>🛠️ Тулбокс Майстра</h3>
+            <p>
+              Зверху ти знайдеш головні інструменти. Вони як магія джедая. Давай
+              потестимо!
+            </p>
+
+            <div class="tools-grid">
+              <div class="tool-card">
+                <div class="icon">👆</div>
+                <h4>Select (Вибір)</h4>
+                <p>
+                  Просто клікни на деталь, щоб виділити її. Як мишкою на
+                  робочому столі.
+                </p>
+              </div>
+              <div class="tool-card">
+                <div class="icon">⬅️</div>
+                <h4>Move (Рух)</h4>
+                <p>
+                  Тягни за стрілочки, щоб рухати об'єкт. Вгору, вниз, вліво,
+                  вправо.
+                </p>
+              </div>
+              <div class="tool-card">
+                <div class="icon">📏</div>
+                <h4>Scale (Розмір)</h4>
+                <p>
+                  Роби деталі гігантськими або мікроскопічними. Тягни за кульки!
+                </p>
+              </div>
+              <div class="tool-card">
+                <div class="icon">🔄</div>
+                <h4>Rotate (Оберт)</h4>
+                <p>Крути деталь навколо своєї осі. Будуємо криві вежі?</p>
+              </div>
+            </div>
+
+            <div class="img-placeholder">
+              Скріншот: [Панель інструментів зверху крупним планом]
+            </div>
+
+            <p>
+              <strong>🔥 Челендж:</strong> Спробуй видалити зайву деталь. Виділи
+              її (Select) і натисни клавішу <code>Delete</code> або
+              <code>Backspace</code> на клавіатурі. Бай-бай!
+            </p>
+          </div>
+
+          <div class="style" id="style">
+            <h3>🎨 Змінюємо дизайн</h3>
+            <p>
+              Сірі цеглини — це нудно. Давай додамо фарб! Знайди зверху кнопки
+              <strong>Color</strong> та <strong>Material</strong>.
+            </p>
+            <ul>
+              <li><strong>Color:</strong> Обери будь-який колір веселки.</li>
+              <li>
+                <strong>Material:</strong> Зроби блок з неону (світиться!),
+                трави або металу.
+              </li>
+            </ul>
+            <div class="img-placeholder">
+              Скріншот: [Меню вибору кольору та матеріалу відкрито]
+            </div>
+          </div>
+
+          <div class="code-part" id="code-part">
+            <h3>💻 Код (Для просунутих)</h3>
+            <p>
+              Ми поки не програмуємо, але ось як виглядає зміна прозорості блоку
+              мовою <strong>Lua</strong>. Це ми будемо вчити пізніше, але
+              виглядає круто, правда?
+            </p>
+
+            <div class="code-container">
+              <div class="code-header">
+                <span>Lua Script</span>
+                <button class="copy-btn" onclick="copyCode()">Копіювати</button>
+              </div>
+              <pre><code id="lua-code">game.Workspace.Part.Transparency = 0.5
+-- Тепер деталь напівпрозора, як привид! 👻</code></pre>
+            </div>
+          </div>
         </section>
 
+        <!-- Практичне завдання -->
         <section id="practical" class="section">
           <h2>Практичне завдання</h2>
           <h3>Крок 1: Створюємо декілька рівнів звичайного паркуру</h3>
@@ -69,6 +193,7 @@
         </section>
       </div>
     </div>
+
     <script src="../script.js"></script>
     <script src="../js/sidebar.js"></script>
     <script src="../js/lesson1.js"></script>
